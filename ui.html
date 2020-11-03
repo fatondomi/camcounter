@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Formulari per Request-a</title>
+    <link rel="stylesheet" href="uiStyle.css">
+    <script src="uiFun.js"></script>
+</head>
+
+<body>
+    
+    <center>
+        <pre id="getPostLbl">GET POST</pre>
+        <input type="checkbox" name="GET" id="getCkBox" onclick="getCBoxClicked();">
+        <input type="checkbox" name="POST" id="postCkBox" onclick="postCBoxClicked();">
+
+        <pre id="urlLbl">URL</pre>
+        <input type="text" id="urlInput">
+
+        <pre id="typeLbl">Type</pre>
+        <input type="text" id="typeInput">
+
+        <pre id="cntLbl">Content</pre>
+        <div id="cntBox">
+            <textarea name="" id="cntTxtSpace"></textarea>
+        </div>
+        <pre id="respLbl">Response</pre>
+        <div id="respBox">
+            <textarea name="" id="respTxtSpace"></textarea>
+        </div>
+        <input type="button" value="Send" id="sendBtn" onclick="sendBtnFun();">
+    </center>
+
+</body>
+</html>

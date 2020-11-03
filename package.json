@@ -1,0 +1,20 @@
+{
+  "name": "camcounterproject",
+  "version": "1.0.0",
+  "description": "base server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fatondomi/camcounter.git"
+  },
+  "keywords": [
+    "camera",
+    "vision"
+  ],
+  "dependencies": {},
+  "author": "faton domi",
+  "license": "ISC"
+}
