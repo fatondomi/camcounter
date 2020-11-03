@@ -108,7 +108,7 @@ function handelEvent(newEvent){
     else
     {
         //handel camera obstructed and disconnected events
-        // send new status to database
+        // send new status to database and others
     }
     
     console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +numOfPeople+"\n\n");
