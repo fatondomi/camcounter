@@ -192,17 +192,17 @@ function handelEvent(newEvent){
 
 setInterval(
     ()=>{
-        let eventCount = user.eventRecords.length; // eventet e regjistruara mbrenda 1 ore
-        let avgNumOfPeople = 0; // numri mesatar i njerzve mbrenda nje ore
+        let eventCount = user.eventRecords.length; // eventet e regjistruara mbrenda 15 min
+        let avgNumOfPeople = 0; // numri mesatar i njerzve mbrenda 15 min
 
         for(let i=0;i<eventCount;i++){ avgNumOfPeople += user.eventRecords.pop(); }
 
-        avgNumOfPeople = (avgNumOfPeople/3600000)/eventCount;
+        avgNumOfPeople = (avgNumOfPeople / 900000) / eventCount;
         //danger scale osht numri i personave / siperfaqen
         // nese cdo person i ka vetem 2 metra katror ne dispozicion dangerScale osht 100
         // danger scale varion nga 0 deri ne 100 me 100 duke perfaqsuar limitin e eperm
         // te asaj qe lejohet qe nje biznes te kete 
-        user.dangerScale = ((2 * avgNumOfPeople)/user.area) * 100;
+        user.dangerScale = ((2 * avgNumOfPeople) / user.area) * 100;
         user.dangerScale = (user.dangerScale > 100)? 100 : dangerScale;
 
         // user.color eshte e gjelbert tersisht apo #00ff00 nese dangerScale osht 0 
@@ -224,6 +224,25 @@ setInterval(
         // per 24 ore i shprazur ose 12 nese punon vetem dymbedhjet ore i shprazur tersisht
         user.score = calcScore(user.hourScores);
         
+        //updating firebase
+        //send user update to user id user.id
+        // send userUpdate obj
+            
+        UserRef.update({
+            "DangerColor":user.color,
+            "DangerScale":user.dangerScale,
+            "numOfPeople":user.numOfPeople,
+            "S":user.area,
+        });
+
+        //refreshing user json on computer
+        fs.writeFile("user.json",JSON.stringify(user,null,3),()=>{});
+    },900000
+);
+
+setInterval(
+    ()=>{
+        
         let dateOb = new Date();
         if(dateOb.getHours() == 0)
         {
@@ -243,10 +262,6 @@ setInterval(
             // send userUpdate obj
             
             UserRef.update({
-                "DangerColor":user.color,
-                "DangerScale":user.dangerScale,
-                "numOfPeople":user.numOfPeople,
-                "S":user.area,
                 "DailyScore":user.score
             });
 
@@ -257,7 +272,6 @@ setInterval(
                 });
             }
         }
-        
     },3600000
 );
 
@@ -283,7 +297,6 @@ function calcColor(percentage)
     greenHex = (greenHex.length<2)?"0"+greenHex:greenHex;
     return "#"+redHex+greenHex+"00";
 }
-
 
 function getMilliDiff(fstDate,secDate)
 {
