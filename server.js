@@ -159,7 +159,13 @@ function handelEvent(newEvent){
         {
             if(user.eventTimeRef2)
             {
-                user.eventTimeRef1 = JSON.parse(JSON.stringify(user.eventTimeRef2));
+                user.eventTimeRef1 = new Date(user.eventTimeRef2.getYear(),
+                                            user.eventTimeRef2.getMonth(),
+                                            user.eventTimeRef2.getDay(),
+                                            user.eventTimeRef2.getMinutes(),
+                                            user.eventTimeRef2.getSeconds(),
+                                            user.eventTimeRef2.getMilliSeconds());
+                
                 user.eventTimeRef2 = new Date();
 
                 user.eventRecords.push(user.numOfPeople * getMilliDiff(user.eventTimeRef1,user.eventTimeRef2));
