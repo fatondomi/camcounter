@@ -145,8 +145,7 @@ function handelEvent(newEvent){
 
     if(newEvent.rule_name)
     {
-        console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +user.numOfPeople+"\n\n");
-    
+        
         //handel enter and exit line crossings
         // send new num of people to the database
         if(newEvent.rule_name == "Enter"){ user.numOfPeople = user.numOfPeople + 1; }
@@ -154,6 +153,8 @@ function handelEvent(newEvent){
             user.numOfPeople = user.numOfPeople - 1; 
             user.numOfPeople = (user.numOfPeople < 0)? 0 : user.numOfPeople;
         }
+        
+        console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +user.numOfPeople+"\n\n");
 
         if(user.eventTimeRef1)
         {
@@ -164,7 +165,7 @@ function handelEvent(newEvent){
                                             user.eventTimeRef2.getDay(),
                                             user.eventTimeRef2.getMinutes(),
                                             user.eventTimeRef2.getSeconds(),
-                                            user.eventTimeRef2.getMilliSeconds());
+                                            user.eventTimeRef2.getMilliseconds());
                 
                 user.eventTimeRef2 = new Date();
 
