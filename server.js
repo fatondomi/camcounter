@@ -153,7 +153,7 @@ function handelEvent(newEvent){
             user.numOfPeople = user.numOfPeople - 1; 
             user.numOfPeople = (user.numOfPeople < 0)? 0 : user.numOfPeople;
         }
-        
+
         console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +user.numOfPeople+"\n\n");
 
         if(user.eventTimeRef1)
@@ -210,7 +210,7 @@ setInterval(
         // danger scale varion nga 0 deri ne 100 me 100 duke perfaqsuar limitin e eperm
         // te asaj qe lejohet qe nje biznes te kete 
         user.dangerScale = ((2 * avgNumOfPeople) / user.area) * 100;
-        user.dangerScale = (user.dangerScale > 100)? 100 : dangerScale;
+        user.dangerScale = (user.dangerScale > 100)? 100 : user.dangerScale;
 
         // user.color eshte e gjelbert tersisht apo #00ff00 nese dangerScale osht 0 
         // e verdh apo #7f7f00 nese dangerScale osht 50 
