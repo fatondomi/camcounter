@@ -145,7 +145,7 @@ function handelEvent(newEvent){
 
     if(newEvent.rule_name)
     {
-        console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +numOfPeople+"\n\n");
+        console.log("\n\n Event Name : " + newEvent.rule_name + " numOfPeople :" +user.numOfPeople+"\n\n");
     
         //handel enter and exit line crossings
         // send new num of people to the database
