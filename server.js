@@ -204,7 +204,7 @@ setInterval(
 
         for(let i=0;i<eventCount;i++){ avgNumOfPeople += user.eventRecords.pop(); }
 
-        avgNumOfPeople = (avgNumOfPeople / 900000) / eventCount;
+        avgNumOfPeople = (eventCount > 0)? (avgNumOfPeople / 900000) / eventCount : user.numOfPeople;
         //danger scale osht numri i personave / siperfaqen
         // nese cdo person i ka vetem 2 metra katror ne dispozicion dangerScale osht 100
         // danger scale varion nga 0 deri ne 100 me 100 duke perfaqsuar limitin e eperm
