@@ -202,9 +202,17 @@ setInterval(
         let eventCount = user.eventRecords.length; // eventet e regjistruara mbrenda 15 min
         let avgNumOfPeople = 0; // numri mesatar i njerzve mbrenda 15 min
 
-        for(let i=0;i<eventCount;i++){ avgNumOfPeople += user.eventRecords.pop(); }
+        if(eventCount > 0)
+        {
+            for(let i=0;i<eventCount;i++){ avgNumOfPeople += user.eventRecords.pop(); }
+            avgNumOfPeople = (avgNumOfPeople / 900000) / eventCount;
+        }
+        else
+        {
+            avgNumOfPeople = avgNumOfPeople;
+        }
 
-        avgNumOfPeople = (eventCount > 0)? (avgNumOfPeople / 900000) / eventCount : user.numOfPeople;
+        avgNumOfPeople = (avgNumOfPeople<0)?0:avgNumOfPeople;
         //danger scale osht numri i personave / siperfaqen
         // nese cdo person i ka vetem 2 metra katror ne dispozicion dangerScale osht 100
         // danger scale varion nga 0 deri ne 100 me 100 duke perfaqsuar limitin e eperm
