@@ -209,7 +209,7 @@ setInterval(
         }
         else
         {
-            avgNumOfPeople = avgNumOfPeople;
+            avgNumOfPeople = user.numOfPeople;
         }
 
         avgNumOfPeople = (avgNumOfPeople<0)?0:avgNumOfPeople;
