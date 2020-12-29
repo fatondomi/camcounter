@@ -221,9 +221,9 @@ setInterval(
         // hourScore varion nga vlera negative kur dyqani eshte i stermbushur
         // ne 0 kur dyqani eshte ne limitin e eperm te lejuar te mbushjes
         // ne 1 kur dyqani eshte plotesisht i shprazur
-        user.hourScores[user.hsIndex] = (hoursOpened>12)?     1 - ((2 * avgNumOfPeople) / user.area) :
-                                        (hoursOpened>5)? 3 * (1 - ((2 * avgNumOfPeople) / user.area)) :
-                                                         6 * (1 - ((2 * avgNumOfPeople) / user.area)) ;
+        user.hourScores[user.hsIndex] = (user.hoursOpened>12)?     1 - ((2 * avgNumOfPeople) / user.area) :
+                                        (user.hoursOpened>5)? 3 * (1 - ((2 * avgNumOfPeople) / user.area)) :
+                                                              6 * (1 - ((2 * avgNumOfPeople) / user.area)) ;
         // indexi per hourScore rritet ose kthehet ne 0
         user.hsIndex = (user.hsIndex < user.hoursOpened)? user.hsIndex + 1 : 0;
         //score eshte te gjitha oret e dites te mbledhura sebashku (shuma e tyre)
